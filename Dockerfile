@@ -2,7 +2,7 @@
 FROM ubuntu:16.04
  
 # Update Software repository
-RUN apt-get update
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 # Install Build Tools
 RUN apt-get install -y build-essential libssl-dev
