@@ -25,11 +25,9 @@ RUN npm install -g node-gyp
 # Install Wiki.js
 RUN mkdir /var/www/wiki
 WORKDIR /var/www/wiki
-ADD https://github.com/Requarks/wiki/releases/download/v1.0-beta.2/wiki-js.tar.gz
-RUN npm install --only=production && npm rebuild
+RUN npm install wiki.js@latest
 
-# Run as a service
-RUN npm install -g pm2
-RUN pm2 start server.js -n wiki
+# Run configure
+RUN node wiki configure
 
 EXPOSE 80
