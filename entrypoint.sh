@@ -3,4 +3,6 @@ set -e
 
 nohup mongod &
 source ~/.nvm/nvm.sh
-exec node wiki configure
+node wiki configure &
+node wiki start
+sleep infinity
