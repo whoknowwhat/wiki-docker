@@ -6,7 +6,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
  
 # Install prerequisites
 RUN apt-get update
-RUN apt-get install curl build-essential libssl-dev -y
+RUN apt-get install curl build-essential libssl-dev git -y
 
 # Install MongoDB
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
@@ -31,6 +31,7 @@ RUN source ~/.nvm/nvm.sh; \
 # Run configure
 #RUN node wiki configure
 
+RUN mkdir -p /data/db
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 80
